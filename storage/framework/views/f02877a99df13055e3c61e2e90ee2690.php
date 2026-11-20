@@ -57,11 +57,10 @@
 
   <div class="pt-sec"><h2>Layanan Informasi</h2><a href="<?php echo e(route('berita.index')); ?>">Lihat Semua <i class="bi bi-arrow-right"></i></a></div>
   <section class="pt-svc">
-    <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $it): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <?php $ic = preg_match('/^bi-[a-z0-9-]+$/', (string) $it->ikon) ? $it->ikon : 'bi-file-earmark-text'; ?>
-      <a href="<?php echo e(\App\Support\MenuLink::href($it->url)); ?>"><i class="bi <?php echo e($ic); ?>"></i><?php echo e($it->title); ?></a>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-  </section>
+  <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $it): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <a href="<?php echo e(\App\Support\MenuLink::href($it->url)); ?>" <?php if(preg_match('#^https?://#i', (string) $it->url)): ?> target="_blank" rel="noopener noreferrer" <?php endif; ?>><i class="bi <?php echo e(preg_match('/^bi-[a-z0-9-]+$/', (string) $it->ikon) ? $it->ikon : 'bi-file-earmark-text'); ?>"></i><?php echo e($it->title); ?></a>
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</section>
 </div>
 <?php $__env->stopSection(); ?>
 

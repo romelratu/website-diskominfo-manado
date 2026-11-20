@@ -32,13 +32,6 @@
           <?php else: ?>
             <p><strong>Halaman belum tersedia.</strong></p>
             <p>Konten untuk halaman ini belum dipublikasikan. Silakan kembali lagi nanti.</p>
-            <?php if(count($known)): ?>
-              <hr>
-              <p class="small text-muted mb-2">Daftar alamat halaman yang tersedia (hanya terlihat setelah login):</p>
-              <ul class="small mb-0">
-                <?php $__currentLoopData = $known; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><li><?php echo e($k->judul); ?> — <code>halaman/<?php echo e($k->slug); ?></code></li><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-              </ul>
-            <?php endif; ?>
           <?php endif; ?>
         </div>
       </div>

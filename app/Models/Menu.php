@@ -30,6 +30,7 @@ class Menu extends Model
         'bi-globe2' => 'Web', 'bi-telephone' => 'Telepon', 'bi-envelope' => 'Surel',
         'bi-calendar-event' => 'Agenda', 'bi-shield-check' => 'Keamanan',
         'bi-bar-chart-line' => 'Data', 'bi-link-45deg' => 'Tautan',
+        'bi-geo-alt' => 'Lokasi',
     ];
 
     public function children(): HasMany

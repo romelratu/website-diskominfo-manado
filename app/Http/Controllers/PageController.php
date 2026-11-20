@@ -20,15 +20,9 @@ class PageController extends Controller
             ->orderByDesc('id')
             ->first();
 
-        $known = [];
-        if (! $row && auth()->check()) {
-            $known = Content::ofType('halaman')->published()->orderBy('judul')->get(['judul', 'slug']);
-        }
-
         return response()->view('public.page', [
             'row' => $row,
             'judul' => $row->judul ?? 'Halaman',
-            'known' => $known,
         ], $row ? 200 : 404);
     }
 

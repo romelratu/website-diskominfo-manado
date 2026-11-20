@@ -24,10 +24,8 @@ Tombol "AI" melayang di semua halaman publik. Pengunjung bisa bertanya seputar b
 | Mode | Syarat | Cara kerja |
 |---|---|---|
 | Pencarian konten | tanpa kunci API (bawaan, gratis) | menampilkan cuplikan halaman paling relevan |
-| AI (Claude) | isi `ANTHROPIC_API_KEY` di `.env` | konten relevan dikirim ke Claude sebagai konteks; jawaban ringkas dalam bahasa Indonesia |
 
 - Aktif/nonaktif: **Admin → Pengaturan → Asisten virtual**.
-- Model diatur lewat `AI_MODEL` (bawaan `claude-haiku-5-5`, hemat biaya).
 - Pembatasan per IP: `AI_PER_MINUTE` (8) dan `AI_PER_DAY` (60) pesan, untuk mencegah penyalahgunaan dan biaya membengkak.
 - Jika API gagal atau kunci kosong, asisten otomatis memakai mode pencarian.
 - Percakapan **tidak disimpan** di server. Pengunjung diingatkan untuk tidak mengirim data pribadi.
@@ -53,20 +51,6 @@ php artisan serve               # http://127.0.0.1:8000
 Admin: **http://127.0.0.1:8000/login** — username `admin`, password `password` (**segera ganti** setelah login pertama).
 
 > Tanpa MySQL: set `DB_CONNECTION=sqlite` di `.env`, hapus baris `DB_HOST` s/d `DB_PASSWORD`, lalu `touch database/database.sqlite`.
-
-## Pemetaan URL (lama → baru)
-
-| Lama | Baru |
-|---|---|
-| `index.php` | `/` |
-| `artikel.php`, `artikel-detail.php?slug=x` | `/berita`, `/berita/x` |
-| `halaman.php?slug=x` | `/halaman/x` |
-| `profil.php`, `tentang-kami.php`, `kontak.php` | `/profil`, `/tentang-kami`, `/kontak` |
-| `auth/login.php` | `/login` |
-| `admin/*.php` | `/admin/...` |
-| `api/index.php?resource=x` | `/api?resource=x` |
-
-URL lama yang tersimpan di Menu Manager (mis. `artikel.php`, `halaman/visi-dan-misi`) tetap otomatis dikenali.
 
 ## Migrasi data dari versi PHP native
 

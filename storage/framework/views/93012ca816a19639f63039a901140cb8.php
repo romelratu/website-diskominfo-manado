@@ -1,5 +1,5 @@
 <?php
-  $tel = ($site['telepon'] ?? '') ?: '(0431) 123456';
+  $tel = ($site['telepon'] ?? '') ?: '(0431) 867052';
   $mail = ($site['email'] ?? '') ?: 'diskominfo@manadokota.go.id';
   $addr = ($site['alamat'] ?? '') ?: 'Jl. Balai Kota No.1, Manado';
 ?>

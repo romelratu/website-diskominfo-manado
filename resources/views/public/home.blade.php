@@ -58,11 +58,10 @@
 
   <div class="pt-sec"><h2>Layanan Informasi</h2><a href="{{ route('berita.index') }}">Lihat Semua <i class="bi bi-arrow-right"></i></a></div>
   <section class="pt-svc">
-    @foreach($services as $it)
-      @php $ic = preg_match('/^bi-[a-z0-9-]+$/', (string) $it->ikon) ? $it->ikon : 'bi-file-earmark-text'; @endphp
-      <a href="{{ \App\Support\MenuLink::href($it->url) }}"><i class="bi {{ $ic }}"></i>{{ $it->title }}</a>
-    @endforeach
-  </section>
+  @foreach($services as $it)
+    <a href="{{ \App\Support\MenuLink::href($it->url) }}" @if(preg_match('#^https?://#i', (string) $it->url)) target="_blank" rel="noopener noreferrer" @endif><i class="bi {{ preg_match('/^bi-[a-z0-9-]+$/', (string) $it->ikon) ? $it->ikon : 'bi-file-earmark-text' }}"></i>{{ $it->title }}</a>
+  @endforeach
+</section>
 </div>
 @endsection
 
